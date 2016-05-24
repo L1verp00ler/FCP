@@ -1,0 +1,11 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Main extends CI_Controller {
+	public function index()
+	{		
+		session_start();
+		$data['session'] = $_SESSION;
+		$this->load->view('v_head',$data);
+		$this->load->view('v_main');
+	}
+}

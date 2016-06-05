@@ -67,7 +67,7 @@
 
             <? if (!isset($session['login'])) { ?>
                 <ul class="nav navbar-nav">
-                    <li><a href='/masters'>Состав команды</a></li>
+                    <li><a href='/players'>Состав команды</a></li>
                     <li><a href='/news'>Новости</a></li>
                     <li><a href='/statistics'>Статистика</a></li>
                     <li><a href='/foto'>Фотогалерея</a></li>

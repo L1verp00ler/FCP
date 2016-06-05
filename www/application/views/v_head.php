@@ -35,19 +35,41 @@
                 if (isset($session['role'])) {
                     if ($session['role'] == 2) {
 
-                        if ($uri == "/person")
+                        if ($uri == "/person") {
                             echo "<li class='active'><a href='/person'>&nbsp;&nbsp;Состав команды&nbsp;&nbsp;</a></li>";
-                        else
-                            echo "<li><a href='/person'>&nbsp;&nbsp;Состав команды&nbsp;&nbsp;</a></li>"; ?>
+                        } else {
+                            echo "<li><a href='/person'>&nbsp;&nbsp;Состав команды&nbsp;&nbsp;</a></li>";
+                        }
 
-                    <? } ?>
-                <? } ?>
+                        if ($uri == "/news") {
+                            echo "<li class='active'><a href='/news'>&nbsp;&nbsp;Новости/Комментарии&nbsp;&nbsp;</a></li>";
+                        } else {
+                            echo "<li><a href='/news'>&nbsp;&nbsp;Новости/Комментарии&nbsp;&nbsp;</a></li>";
+                        }
+
+                        if ($uri == "/statistics") {
+                            echo "<li class='active'><a href='/statistics'>&nbsp;&nbsp;Статистика игр&nbsp;&nbsp;</a></li>";
+                        } else {
+                            echo "<li><a href='/statistics'>&nbsp;&nbsp;Статистика игр&nbsp;&nbsp;</a></li>";
+                        }
+
+                        if ($uri == "/users") {
+                            echo "<li class='active'><a href='/users'>&nbsp;&nbsp;Работа с пользователями&nbsp;&nbsp;</a></li>";
+                        } else {
+                            echo "<li><a href='/users'>&nbsp;&nbsp;Работа с пользователями&nbsp;&nbsp;</a></li>";
+                        }
+
+                    }
+                }
+                ?>
 
             </ul>
 
             <? if (!isset($session['login'])) { ?>
                 <ul class="nav navbar-nav">
-                    <li><a href='/masters'>Наша команда</a></li>
+                    <li><a href='/masters'>Состав команды</a></li>
+                    <li><a href='/news'>Новости</a></li>
+                    <li><a href='/statistics'>Статистика</a></li>
                     <li><a href='/foto'>Фотогалерея</a></li>
                     <li><a href='/about'>О нас</a></li>
                 </ul>

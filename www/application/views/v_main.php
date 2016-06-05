@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-md-4">
             <!-- Новости ВКонтакте -->
-            <h2>Новости и результаты матчей</h2>
+            <h2>Подпишись на нашу группу ВК!</h2>
             <div class="container-fluid">
                 <div class="row">
                     <div id="vk_post_-26669476_1234"></div>

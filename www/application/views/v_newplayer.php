@@ -6,7 +6,7 @@
         <h1 class="page-header">Новый игрок</h1>
         <div class="col-md-8">
             <br>
-            <?php echo form_open('/newmaster/login_validation', 'class="form-horizontal"', 'method="POST"'); ?>
+            <?php echo form_open('/newplayer/login_validation', 'class="form-horizontal"', 'method="POST"'); ?>
             <?php echo validation_errors('<p class="error">', '</p>'); ?>
             <div class="form-group">
                 <label for="familiya" class="col-sm-3 control-label">Фамилия*</label>

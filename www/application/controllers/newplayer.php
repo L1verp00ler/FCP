@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Newmaster extends CI_Controller
+class Newplayer extends CI_Controller
 {
     public function index()
     {
@@ -8,7 +8,7 @@ class Newmaster extends CI_Controller
         $data['session'] = $_SESSION;
         $this->load->library('form_validation');
         $this->load->view('v_head', $data);
-        $this->load->view('v_newmaster');
+        $this->load->view('v_newplayer');
 
     }
 
@@ -26,19 +26,19 @@ class Newmaster extends CI_Controller
                 session_start();
                 $data['session'] = $_SESSION;
                 $this->load->view('v_head', $data);
-                $this->load->view('v_newmaster');
+                $this->load->view('v_newplayer');
                 echo "<script>alert('Использованы недопустимые символы');</script>";
             }
             $data = $_POST;
             $data['role'] = 1;
             $this->m_employees->add('personal', $data);
-            redirect("/person");
+            redirect("/players");
 
         } else {
             session_start();
             $data['session'] = $_SESSION;
             $this->load->view('v_head', $data);
-            $this->load->view('v_newmaster');
+            $this->load->view('v_newplayer');
         }
     }
 }

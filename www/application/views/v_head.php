@@ -35,10 +35,10 @@
                 if (isset($session['role'])) {
                     if ($session['role'] == 2) {
 
-                        if ($uri == "/person") {
-                            echo "<li class='active'><a href='/person'>&nbsp;&nbsp;Состав команды&nbsp;&nbsp;</a></li>";
+                        if ($uri == "/players") {
+                            echo "<li class='active'><a href='/players'>&nbsp;&nbsp;Состав команды&nbsp;&nbsp;</a></li>";
                         } else {
-                            echo "<li><a href='/person'>&nbsp;&nbsp;Состав команды&nbsp;&nbsp;</a></li>";
+                            echo "<li><a href='/players'>&nbsp;&nbsp;Состав команды&nbsp;&nbsp;</a></li>";
                         }
 
                         if ($uri == "/news") {
@@ -67,7 +67,7 @@
 
             <? if (!isset($session['login'])) { ?>
                 <ul class="nav navbar-nav">
-                    <li><a href='/players'>Состав команды</a></li>
+                    <li><a href='/team'>Состав команды</a></li>
                     <li><a href='/news'>Новости</a></li>
                     <li><a href='/statistics'>Статистика</a></li>
                     <li><a href='/foto'>Фотогалерея</a></li>

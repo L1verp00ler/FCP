@@ -21,6 +21,12 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <br>
             <h1 class="page-header">Состав команды</h1>
+            <? if (isset($_GET['message'])) { ?>
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    Не удалось добавить нового игрока! В полях ввода были использованы недопустимые символы!
+                </div>
+            <? } ?>
             <? if (isset($_GET['info'])) { ?>
                 <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

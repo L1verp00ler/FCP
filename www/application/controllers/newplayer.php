@@ -15,23 +15,29 @@ class Newplayer extends CI_Controller
     public function login_validation()
     {
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('name', 'Имя', 'required|min_length[2]|max_length[25]|xss_clean');
-        $this->form_validation->set_rules('familiya', 'Фамилия', 'required|min_length[5]|max_length[25]|xss_clean');
-        $this->form_validation->set_rules('stag', 'Возраст', 'required|min_length[1]|max_length[2]|xss_clean');
+        $this->form_validation->set_rules('firstname', 'Имя', 'required|min_length[2]|max_length[25]|xss_clean');
+        $this->form_validation->set_rules('lastname', 'Фамилия', 'required|min_length[5]|max_length[25]|xss_clean');
+        $this->form_validation->set_rules('age', 'Возраст', 'required|min_length[1]|max_length[2]|xss_clean');
         if ($this->form_validation->run() !== false) {
-            if (preg_match("/[\'|\<|\>|\"|\!|\?|\$|\@|\#|\%|\^|\&|\~|\*|\+|\_|\:|\;|\`|\=]/", $_POST['name']) ||
-                preg_match("/[\'|\<|\>|\"|\!|\?|\$|\@|\#|\%|\^|\&|\~|\*|\+|\_|\:|\;|\`|\=]/", $_POST['familiya']) ||
-                preg_match("/[\'|\<|\>|\"|\!|\?|\$|\@|\#|\%|\^|\&|\~|\*|\+|\_|\:|\;|\`|\=]/", $_POST['stag'])
+            if (preg_match("/[\'|\<|\>|\"|\!|\?|\$|\@|\#|\%|\^|\&|\~|\*|\+|\_|\:|\;|\`|\=]/", $_POST['firstname']) ||
+                preg_match("/[\'|\<|\>|\"|\!|\?|\$|\@|\#|\%|\^|\&|\~|\*|\+|\_|\:|\;|\`|\=]/", $_POST['lastname']) ||
+                preg_match("/[\'|\<|\>|\"|\!|\?|\$|\@|\#|\%|\^|\&|\~|\*|\+|\_|\:|\;|\`|\=]/", $_POST['age'])
             ) {
                 session_start();
                 $data['session'] = $_SESSION;
                 $this->load->view('v_head', $data);
                 $this->load->view('v_newplayer');
-                echo "<script>alert('Использованы недопустимые символы');</script>";
+                //echo "<script>alert('Использованы недопустимые символы');</script>";
+                redirect("/players?message=1");
             }
-            $data = $_POST;
-            $data['role'] = 1;
-            $this->m_employees->add('personal', $data);
+            //$data = $_POST;
+            //$data['role'] = 1;
+            //$this->m_employees->add('personal', $data);
+            $query = "INSERT INTO players (player_id, firstname, lastname, age, position_id)
+                      VALUES ('" . $_POST['player_id'] . "', '" . $_POST['firstname'] . "', '" . $_POST['lastname'] . "', '" . $_POST['age'] . "', '" . $_POST['position_id'] . "');";
+            $result = mysql_query($query);
+            //var_dump($result);
+            //exit;
             redirect("/players");
 
         } else {
